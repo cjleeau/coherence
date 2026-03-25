@@ -103,7 +103,7 @@ Next.js (documentation + system interface)
 ---
 
 ## Getting started
-
+```
 pnpm install
 pnpm dev:docs
 pnpm dev:storybook
@@ -119,7 +119,7 @@ packages/
   patterns/        # Product patterns
   themes/          # Theme definitions
   utils-a11y/      # Accessibility helpers
-
+```
 ---
 
 ## Roadmap
