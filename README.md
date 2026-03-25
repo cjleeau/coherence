@@ -1,2 +1,144 @@
 # Coherence
-Coherence across systems, people, and interfaces
+
+**A universal, inclusive design system for building coherent digital systems.**
+
+Coherence is not a UI kit.
+
+It is a system layer that brings together **design principles, semantic tokens, accessible components, and product patterns** into a single, scalable foundation for modern digital products.
+
+---
+
+## Why Coherence exists
+
+Most design systems standardise interfaces.
+
+Few address the deeper problem:
+
+> Systems drift. Interfaces diverge. Accessibility becomes inconsistent.  
+> Value is lost between layers.
+
+Coherence exists to solve that.
+
+It ensures that:
+
+- design decisions remain aligned across products and teams
+- accessibility and inclusion are built in from the start
+- systems behave consistently, not just visually, but structurally
+
+---
+
+## What Coherence is
+
+Coherence is a **token-driven, accessibility-first design system**, made up of:
+
+### Principles
+The rules that guide how systems should behave.
+
+### Foundations
+Colour, typography, spacing, motion, layout, and interaction standards.
+
+### Tokens
+Semantic design tokens that scale meaning across themes, platforms, and products.
+
+### Components
+Accessible, production-ready React components for real-world product use.
+
+### Patterns
+Reusable product flows such as forms, dashboards, tables, and navigation.
+
+### Governance
+Clear contribution, versioning, and release processes to maintain system integrity over time.
+
+---
+
+## Architecture
+
+Coherence is built as a layered system:
+
+Principles
+↓
+Foundations
+↓
+Design Tokens (Style Dictionary)
+↓
+CSS Variables + TypeScript Maps
+↓
+React Primitives → Components → Patterns
+↓
+Storybook (development + validation)
+↓
+Next.js (documentation + system interface)
+
+---
+
+## Tech Stack
+
+- **Next.js** — documentation site and system interface
+- **React** — component library
+- **Storybook** — component development and testing
+- **Style Dictionary** — design token pipeline
+- **Tailwind CSS** — implementation layer (token-driven)
+- **TypeScript** — type safety across the system
+- **pnpm workspaces** — monorepo management
+
+---
+
+## Key principles
+
+- **Semantic over visual naming**  
+  Tokens express meaning, not appearance.
+
+- **Accessibility by default**  
+  WCAG compliance, keyboard navigation, and contrast are built into every layer.
+
+- **System over surface**  
+  Coherence focuses on how systems behave, not just how they look.
+
+- **Consistency through structure**  
+  Tokens, components, and patterns are aligned and interdependent.
+
+- **Scalable by design**  
+  Built to support themes, platforms, and evolving product ecosystems.
+
+---
+
+## Getting started
+
+
+pnpm install
+pnpm dev:docs
+pnpm dev:storybook
+
+apps/
+  docs/            # Next.js documentation site
+  storybook/       # Storybook environment
+
+packages/
+  tokens/          # Design tokens + Style Dictionary
+  primitives/      # Layout and text primitives
+  components/      # React component library
+  patterns/        # Product patterns
+  themes/          # Theme definitions
+  utils-a11y/      # Accessibility helpers
+
+---
+
+## Roadmap
+Phase 1 — Foundations and token system
+Phase 2 — Core primitives and components
+Phase 3 — Accessibility hardening
+Phase 4 — Patterns and documentation
+Phase 5 — Governance and public release
+
+---
+
+## Contributing
+
+Coherence is designed to evolve through structured contribution.
+
+All changes must:
+
+- follow token and component standards
+- meet accessibility requirements
+- pass automated checks
+- include documentation updates
