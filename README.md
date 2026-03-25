@@ -55,18 +55,18 @@ Clear contribution, versioning, and release processes to maintain system integri
 
 Coherence is built as a layered system:
 
-Principles
-↓
-Foundations
-↓
-Design Tokens (Style Dictionary)
-↓
-CSS Variables + TypeScript Maps
-↓
-React Primitives → Components → Patterns
-↓
-Storybook (development + validation)
-↓
+Principles<br>
+↓<br>
+Foundations<br>
+↓<br>
+Design Tokens (Style Dictionary)<br>
+↓<br>
+CSS Variables + TypeScript Maps<br>
+↓<br>
+React Primitives → Components → Patterns<br>
+↓<br>
+Storybook (development + validation)<br>
+↓<br>
 Next.js (documentation + system interface)
 
 ---
@@ -104,7 +104,6 @@ Next.js (documentation + system interface)
 
 ## Getting started
 
-
 pnpm install
 pnpm dev:docs
 pnpm dev:storybook
@@ -124,11 +123,11 @@ packages/
 ---
 
 ## Roadmap
-Phase 1 — Foundations and token system
-Phase 2 — Core primitives and components
-Phase 3 — Accessibility hardening
-Phase 4 — Patterns and documentation
-Phase 5 — Governance and public release
+- Phase 1 — Foundations and token system
+- Phase 2 — Core primitives and components
+- Phase 3 — Accessibility hardening
+- Phase 4 — Patterns and documentation
+- Phase 5 — Governance and public release
 
 ---
 
@@ -138,7 +137,7 @@ Coherence is designed to evolve through structured contribution.
 
 All changes must:
 
-- follow token and component standards
-- meet accessibility requirements
-- pass automated checks
-- include documentation updates
+- Follow token and component standards
+- Meet accessibility requirements
+- Pass automated checks
+- Include documentation updates
