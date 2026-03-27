@@ -1,35 +1,17 @@
-@import '../../../packages/tokens/dist/tokens.css';
-@import '../../../packages/tokens/dist/theme-light.css';
-@import '../../../packages/tokens/dist/theme-dark.css';
 @import "../../../packages/tokens/dist/css/variables.css";
 
-:root {
-  color-scheme: light;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  box-sizing: border-box;
-}
-
+/* Base system wiring */
 html,
 body {
-  margin: 0;
-  padding: 0;
-  background: var(--theme-color-surface-canvas);
-  color: var(--theme-color-text-primary);
+  min-height: 100%;
+}
+
+body {
+  background: var(--surface-base);
+  color: var(--text-primary);
   font-family: var(--font-family-sans);
-}
-
-main {
-  min-height: 100vh;
-  padding: var(--space-800);
-}
-
-.section {
-  max-width: 60rem;
-  margin: 0 auto;
-}
-
-.panel {
-  margin-top: var(--space-600);
 }
