@@ -1,6 +1,7 @@
 @import '../../../packages/tokens/dist/tokens.css';
 @import '../../../packages/tokens/dist/theme-light.css';
 @import '../../../packages/tokens/dist/theme-dark.css';
+@import "../../../packages/tokens/dist/css/variables.css";
 
 :root {
   color-scheme: light;

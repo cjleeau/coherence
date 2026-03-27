@@ -1,0 +1,32 @@
+{
+  "surface": {
+    "base": { "value": "{color.neutral.0}" },
+    "raised": { "value": "{color.neutral.50}" },
+    "sunken": { "value": "{color.neutral.100}" },
+    "inverse": { "value": "{color.neutral.950}" }
+  },
+  "text": {
+    "primary": { "value": "{color.neutral.950}" },
+    "secondary": { "value": "{color.neutral.700}" },
+    "muted": { "value": "{color.neutral.500}" },
+    "inverse": { "value": "{color.neutral.0}" }
+  },
+  "border": {
+    "subtle": { "value": "{color.neutral.200}" },
+    "strong": { "value": "{color.neutral.400}" },
+    "inverse": { "value": "{color.neutral.700}" }
+  },
+  "action": {
+    "primary": { "value": "{color.blue.600}" },
+    "primaryHover": { "value": "{color.blue.700}" },
+    "primaryText": { "value": "{color.neutral.0}" }
+  },
+  "focus": {
+    "ring": { "value": "{color.blue.400}" }
+  },
+  "status": {
+    "success": { "value": "{color.green.600}" },
+    "warning": { "value": "{color.amber.500}" },
+    "critical": { "value": "{color.red.600}" }
+  }
+}

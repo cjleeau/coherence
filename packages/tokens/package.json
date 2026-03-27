@@ -1,11 +1,15 @@
 {
   "name": "@coherence/tokens",
+  "version": "0.0.0",
   "private": true,
-  "type": "module",
+  "type": "commonjs",
+  "main": "./dist/ts/tokens.ts",
+  "files": ["dist"],
   "scripts": {
-    "build": "node build.mjs"
+    "build": "node ./build.mjs",
+    "dev": "pnpm build"
   },
   "devDependencies": {
-    "style-dictionary": "^4.4.0"
+    "style-dictionary": "^4.0.0"
   }
 }

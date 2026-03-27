@@ -1,29 +1,47 @@
-import { Box, Text } from '@coherence/primitives'
-
-export default function HomePage() {
+export default function Page() {
   return (
-    <main>
-      <div className="section">
-        <Text as="p" size="600" weight="bold" leading="100">
-          Coherence
-        </Text>
-
-        <Text as="p" size="300" tone="primary">
-          Token-driven, accessibility-first design system.
-        </Text>
-
-        <Box
-          className="panel"
-          background="surface-primary"
-          borderColor="border-default"
-          padding="600"
-          radius="lg"
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "var(--surface-base)",
+        color: "var(--text-primary)",
+        padding: "var(--spacing-8)"
+      }}
+    >
+      <div
+        style={{
+          background: "var(--surface-raised)",
+          padding: "var(--spacing-6)",
+          borderRadius: "12px",
+          border: "1px solid var(--border-subtle)"
+        }}
+      >
+        <h1
+          style={{
+            fontSize: "var(--font-size-3xl)",
+            marginBottom: "var(--spacing-4)"
+          }}
         >
-          <Text as="p" size="300" tone="primary">
-            Box v1 and Text v1 are now consuming token-driven primitive props.
-          </Text>
-        </Box>
+          Coherence Token System
+        </h1>
+
+        <p style={{ color: "var(--text-secondary)" }}>
+          If you can read this with proper spacing, colours and typography —
+          tokens are wired correctly.
+        </p>
+
+        <div
+          style={{
+            marginTop: "var(--spacing-6)",
+            padding: "var(--spacing-4)",
+            background: "var(--action-primary)",
+            color: "var(--action-primaryText)",
+            borderRadius: "8px"
+          }}
+        >
+          Primary action surface
+        </div>
       </div>
     </main>
-  )
+  );
 }
