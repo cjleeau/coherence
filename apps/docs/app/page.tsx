@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Box, Text, Heading, Stack, Inline } from "@coherence/primitives";
 
 const THEMES = ["light", "dark", "hc-light", "hc-dark"] as const;
 type Theme = (typeof THEMES)[number];
@@ -13,25 +14,24 @@ export default function Page() {
   }, [theme]);
 
   return (
-    <main className="min-h-screen bg-surface-base text-text-primary p-8 font-sans">
-      <div className="mx-auto max-w-3xl space-y-6">
-        {/* Header */}
-        <header className="space-y-4">
-          <p className="text-sm text-text-secondary">
-            Coherence / Token System Core
-          </p>
+    <Box className="min-h-screen bg-surface-base text-text-primary p-8 font-sans">
+      <Stack className="mx-auto max-w-3xl" space="6">
+        <Stack as="header" space="4">
+          <Text as="p" size="sm" tone="secondary">
+            Coherence / Primitives Foundation
+          </Text>
 
-          <h1 className="text-4xl font-bold">
-            Theme system is live
-          </h1>
+          <Heading as="h1" size="xl">
+            Box, Text, Heading, Stack and Inline are live
+          </Heading>
 
-          <p className="text-lg text-text-secondary max-w-2xl">
-            This proves semantic tokens + Tailwind + runtime theme switching are all wired correctly.
-          </p>
-        </header>
+          <Text as="p" size="lg" tone="secondary" className="max-w-2xl">
+            This proves the first primitive layer is handling structure, text,
+            hierarchy, vertical rhythm and horizontal alignment using the token system.
+          </Text>
+        </Stack>
 
-        {/* Theme Switcher */}
-        <section className="flex flex-wrap gap-3">
+        <Inline space="3" wrap>
           {THEMES.map((t) => {
             const active = t === theme;
 
@@ -50,37 +50,36 @@ export default function Page() {
               </button>
             );
           })}
-        </section>
+        </Inline>
 
-        {/* Demo surface */}
-        <section className="rounded-xl border border-border-subtle bg-surface-raised p-6 space-y-4">
-          <h2 className="text-2xl font-semibold">
-            Token preview
-          </h2>
+        <Box className="rounded-xl border border-border-subtle bg-surface-raised p-6">
+          <Stack space="4">
+            <Stack space="2">
+              <Text>Primary body text through the Text primitive.</Text>
+              <Text tone="secondary">
+                Secondary text through semantic tone mapping.
+              </Text>
+              <Text tone="muted" size="sm">
+                Muted supporting text through the same primitive.
+              </Text>
+            </Stack>
 
-          <div className="space-y-2">
-            <p className="text-text-primary">Primary text</p>
-            <p className="text-text-secondary">Secondary text</p>
-            <p className="text-text-muted">Muted text</p>
-          </div>
+            <Inline space="3" align="center" wrap>
+              <Box className="rounded-lg bg-action-primary px-4 py-3 text-action-primaryText">
+                Primary action
+              </Box>
 
-          <div className="flex flex-wrap gap-3 pt-2">
-            <div className="rounded-lg bg-action-primary px-4 py-3 text-action-primaryText">
-              Primary action
-            </div>
+              <Box className="rounded-lg border border-border-strong bg-surface-sunken px-4 py-3 text-text-primary">
+                Secondary container
+              </Box>
 
-            <div className="rounded-lg border border-border-strong bg-surface-sunken px-4 py-3 text-text-primary">
-              Secondary container
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-4 pt-2">
-            <span className="text-status-success">Success</span>
-            <span className="text-status-warning">Warning</span>
-            <span className="text-status-critical">Critical</span>
-          </div>
-        </section>
-      </div>
-    </main>
+              <Text tone="secondary" size="sm">
+                Inline keeps horizontal rhythm consistent.
+              </Text>
+            </Inline>
+          </Stack>
+        </Box>
+      </Stack>
+    </Box>
   );
 }
