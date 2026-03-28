@@ -3,3 +3,4 @@ export { Text } from "./text/Text";
 export { Heading } from "./heading/Heading";
 export { Stack } from "./stack/Stack";
 export { Inline } from "./inline/Inline";
+export { Action } from "./action/Action";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Box, Text, Heading, Stack, Inline } from "@coherence/primitives";
+import { Action, Box, Text, Heading, Stack, Inline } from "@coherence/primitives";
 
 const THEMES = ["light", "dark", "hc-light", "hc-dark"] as const;
 type Theme = (typeof THEMES)[number];
@@ -40,20 +40,19 @@ export default function Page() {
             const active = t === theme;
 
             return (
-              <button
+              <Action
                 key={t}
                 onClick={() => setTheme(t)}
-                className={[
-                  "rounded-lg border px-4 py-2 text-sm transition",
-                  active
-                    ? "bg-[var(--action-primary)] text-[var(--action-primaryText)] border-[var(--border-strong)]"
-                    : "bg-[var(--surface-raised)] text-[var(--text-primary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
-                ].join(" ")}
+                variant={active ? "primary" : "secondary"}
               >
                 {t}
-              </button>
+              </Action>
             );
           })}
+
+          <Action variant="secondary" disabled>
+            Disabled
+          </Action>
         </Inline>
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
