@@ -1,31 +1,16 @@
 import type { ElementType } from "react";
 import { cx } from "../utils/cx";
-import type { PolymorphicProps } from "../types";
-
-type InlineSpace =
-  | "0"
-  | "1"
-  | "2"
-  | "3"
-  | "4"
-  | "5"
-  | "6"
-  | "8"
-  | "10"
-  | "12"
-  | "16"
-  | "20"
-  | "24";
+import type { PolymorphicProps, SpacingToken } from "../types";
 
 type InlineAlign = "start" | "center" | "end" | "stretch" | "baseline";
 
 type InlineProps<T extends ElementType> = PolymorphicProps<T> & {
-  space?: InlineSpace;
+  space?: SpacingToken;
   align?: InlineAlign;
   wrap?: boolean;
 };
 
-const spaceClasses: Record<InlineSpace, string> = {
+const spaceClasses: Record<SpacingToken, string> = {
   "0": "gap-0",
   "1": "gap-1",
   "2": "gap-2",

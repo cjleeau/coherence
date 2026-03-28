@@ -1,27 +1,12 @@
 import type { ElementType } from "react";
 import { cx } from "../utils/cx";
-import type { PolymorphicProps } from "../types";
-
-type StackSpace =
-  | "0"
-  | "1"
-  | "2"
-  | "3"
-  | "4"
-  | "5"
-  | "6"
-  | "8"
-  | "10"
-  | "12"
-  | "16"
-  | "20"
-  | "24";
+import type { PolymorphicProps, SpacingToken } from "../types";
 
 type StackProps<T extends ElementType> = PolymorphicProps<T> & {
-  space?: StackSpace;
+  space?: SpacingToken;
 };
 
-const spaceClasses: Record<StackSpace, string> = {
+const spaceClasses: Record<SpacingToken, string> = {
   "0": "space-y-0",
   "1": "space-y-1",
   "2": "space-y-2",

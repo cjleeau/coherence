@@ -1,18 +1,25 @@
 import type { ElementType } from "react";
 import { cx } from "../utils/cx";
-import type { PolymorphicProps } from "../types";
+import type {
+  FontSizeToken,
+  FontWeightToken,
+  PolymorphicProps,
+  TextToneToken
+} from "../types";
 
-type TextTone = "primary" | "secondary" | "muted";
-type TextSize = "sm" | "md" | "lg";
-type TextWeight = "regular" | "medium" | "semibold";
+type TextSize = Extract<FontSizeToken, "sm" | "md" | "lg">;
+type TextWeight = Extract<FontWeightToken, "regular" | "medium" | "semibold">;
 
 type TextProps<T extends ElementType> = PolymorphicProps<T> & {
-  tone?: TextTone;
+  tone?: Extract<TextToneToken, "primary" | "secondary" | "muted">;
   size?: TextSize;
   weight?: TextWeight;
 };
 
-const toneClasses: Record<TextTone, string> = {
+const toneClasses: Record<
+  Extract<TextToneToken, "primary" | "secondary" | "muted">,
+  string
+> = {
   primary: "text-text-primary",
   secondary: "text-text-secondary",
   muted: "text-text-muted"
@@ -20,7 +27,7 @@ const toneClasses: Record<TextTone, string> = {
 
 const sizeClasses: Record<TextSize, string> = {
   sm: "text-sm",
-  md: "text-md",
+  md: "text-base",
   lg: "text-lg"
 };
 

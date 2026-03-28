@@ -1,23 +1,27 @@
 import type { ElementType } from "react";
 import { cx } from "../utils/cx";
-import type { PolymorphicProps } from "../types";
+import type {
+  FontSizeToken,
+  HeadingToneToken,
+  PolymorphicProps
+} from "../types";
 
-type HeadingSize = "sm" | "md" | "lg" | "xl";
-type HeadingTone = "primary" | "secondary";
+type HeadingSize = Extract<FontSizeToken, "lg" | "xl" | "2xl" | "3xl" | "4xl">;
 
 type HeadingProps<T extends ElementType> = PolymorphicProps<T> & {
   size?: HeadingSize;
-  tone?: HeadingTone;
+  tone?: HeadingToneToken;
 };
 
 const sizeClasses: Record<HeadingSize, string> = {
-  sm: "text-lg",
-  md: "text-2xl",
-  lg: "text-3xl",
-  xl: "text-4xl"
+  lg: "text-lg",
+  xl: "text-xl",
+  "2xl": "text-2xl",
+  "3xl": "text-3xl",
+  "4xl": "text-4xl"
 };
 
-const toneClasses: Record<HeadingTone, string> = {
+const toneClasses: Record<HeadingToneToken, string> = {
   primary: "text-text-primary",
   secondary: "text-text-secondary"
 };
@@ -26,7 +30,7 @@ export function Heading<T extends ElementType = "h2">({
   as,
   children,
   className,
-  size = "md",
+  size = "2xl",
   tone = "primary",
   ...rest
 }: HeadingProps<T>) {
