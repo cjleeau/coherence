@@ -48,3 +48,5 @@ export type HeadingToneToken = "primary" | "secondary";
 
 export type SurfaceToneToken = "base" | "raised" | "sunken" | "inverse";
 export type BorderToneToken = "none" | "subtle" | "strong" | "inverse";
+
+export type ActionVariantToken = "primary" | "secondary";
