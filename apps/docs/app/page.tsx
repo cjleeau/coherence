@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Action, Box, Text, Heading, Stack, Inline } from "@coherence/primitives";
+import { Button } from "@coherence/components";
+import { Box, Text, Heading, Stack, Inline } from "@coherence/primitives";
 
 const THEMES = ["light", "dark", "hc-light", "hc-dark"] as const;
 type Theme = (typeof THEMES)[number];
@@ -17,21 +18,24 @@ export default function Page() {
     <Box
       className="min-h-screen p-8"
       surface="base"
-      style={{ color: "var(--text-primary)", fontFamily: "var(--font-family-sans)" }}
+      style={{
+        color: "var(--text-primary)",
+        fontFamily: "var(--font-family-sans)"
+      }}
     >
       <Stack className="mx-auto max-w-3xl" space="8">
         <Stack as="header" space="4">
           <Text size="sm" tone="secondary">
-            Coherence / Primitives Foundation
+            Coherence / Components v1
           </Text>
 
           <Heading as="h1" size="xl">
-            Box, Text, Heading, Stack and Inline are live
+            First component: Button
           </Heading>
 
           <Text size="lg" tone="secondary" className="max-w-2xl">
-            This validates structure, typography, vertical rhythm and horizontal
-            alignment against the token system.
+            This validates the first component layer using native button behaviour
+            and token styling on top of the primitive foundation.
           </Text>
         </Stack>
 
@@ -40,19 +44,19 @@ export default function Page() {
             const active = t === theme;
 
             return (
-              <Action
+              <Button
                 key={t}
                 onClick={() => setTheme(t)}
                 variant={active ? "primary" : "secondary"}
               >
                 {t}
-              </Action>
+              </Button>
             );
           })}
 
-          <Action variant="secondary" disabled>
+          <Button variant="secondary" disabled>
             Disabled
-          </Action>
+          </Button>
         </Inline>
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
@@ -78,15 +82,9 @@ export default function Page() {
             </Stack>
 
             <Inline space="4" align="center" wrap>
-              <Box
-                className="rounded-lg px-4 py-3"
-                style={{
-                  backgroundColor: "var(--action-primary)",
-                  color: "var(--action-primaryText)"
-                }}
-              >
-                Primary action
-              </Box>
+              <Button variant="primary">Primary</Button>
+
+              <Button variant="secondary">Secondary</Button>
 
               <Box
                 className="rounded-lg px-4 py-3"
@@ -94,11 +92,11 @@ export default function Page() {
                 border="strong"
                 style={{ color: "var(--text-primary)" }}
               >
-                Secondary container
+                Container
               </Box>
 
               <Text tone="secondary" size="sm">
-                Inline keeps horizontal rhythm consistent.
+                Inline layout validation.
               </Text>
             </Inline>
           </Stack>
