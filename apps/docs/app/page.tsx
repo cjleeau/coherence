@@ -6,7 +6,8 @@ import {
   Field,
   Checkbox,
   Textarea,
-  Select
+  Select,
+  FieldGroup
 } from "@coherence/components";
 import { Box, Text, Heading, Stack, Inline } from "@coherence/primitives";
 
@@ -14,8 +15,15 @@ const THEMES = ["light", "dark", "hc-light", "hc-dark"] as const;
 type Theme = (typeof THEMES)[number];
 
 const PRIMITIVES_COMPLETE = ["Box", "Stack", "Inline", "Text", "Heading"] as const;
-const COMPONENTS_COMPLETE = ["Button", "Field", "Checkbox", "Textarea", "Select"] as const;
-const NEXT_UP = ["FieldGroup"] as const;
+const COMPONENTS_COMPLETE = [
+  "Button",
+  "Field",
+  "Checkbox",
+  "Textarea",
+  "Select",
+  "FieldGroup"
+] as const;
+const NEXT_UP = ["Validation patterns"] as const;
 
 const ROLE_OPTIONS = [
   { label: "Designer", value: "designer" },
@@ -159,73 +167,88 @@ export default function Page() {
             </Inline>
 
             <Stack space="4">
-              <Field
-                label="Email"
-                type="email"
-                placeholder="you@example.com"
-                hint="Use your work email address."
-              />
+              <FieldGroup
+                title="Basic fields"
+                description="Single-line inputs for account and project metadata."
+              >
+                <Field
+                  label="Email"
+                  type="email"
+                  placeholder="you@example.com"
+                  hint="Use your work email address."
+                />
 
-              <Field
-                label="Project name"
-                placeholder="Coherence Design System"
-                defaultValue="Coherence"
-              />
+                <Field
+                  label="Project name"
+                  placeholder="Coherence Design System"
+                  defaultValue="Coherence"
+                />
 
-              <Field
-                label="Account ID"
-                placeholder="Enter account ID"
-                error="Account ID is required."
-              />
+                <Field
+                  label="Account ID"
+                  placeholder="Enter account ID"
+                  error="Account ID is required."
+                />
+              </FieldGroup>
 
-              <Checkbox label="Accept terms and conditions" />
+              <FieldGroup
+                title="Choices"
+                description="Boolean and list-based selection patterns."
+              >
+                <Checkbox label="Accept terms and conditions" />
 
-              <Checkbox
-                label="Subscribe to updates"
-                hint="You can unsubscribe at any time."
-              />
+                <Checkbox
+                  label="Subscribe to updates"
+                  hint="You can unsubscribe at any time."
+                />
 
-              <Checkbox label="Disabled option" disabled />
+                <Checkbox label="Disabled option" disabled />
 
-              <Textarea
-                label="Project summary"
-                placeholder="Write a short summary..."
-                hint="Keep it brief and clear."
-              />
+                <Select
+                  label="Role"
+                  options={[...ROLE_OPTIONS]}
+                  placeholder="Select a role"
+                  defaultValue=""
+                  hint="Choose the primary role for this user."
+                />
 
-              <Textarea
-                label="Implementation notes"
-                defaultValue="Primitive layer complete. Components now in progress."
-                rows={5}
-              />
+                <Select
+                  label="Environment"
+                  options={[...ENVIRONMENT_OPTIONS]}
+                  defaultValue="staging"
+                />
 
-              <Textarea
-                label="Risk notes"
-                placeholder="Document any issues here..."
-                error="Risk notes are required."
-              />
+                <Select
+                  label="Release target"
+                  options={[...ENVIRONMENT_OPTIONS]}
+                  placeholder="Select a target"
+                  defaultValue=""
+                  error="Release target is required."
+                />
+              </FieldGroup>
 
-              <Select
-                label="Role"
-                options={[...ROLE_OPTIONS]}
-                placeholder="Select a role"
-                defaultValue=""
-                hint="Choose the primary role for this user."
-              />
+              <FieldGroup
+                title="Long-form input"
+                description="Multi-line content and implementation notes."
+              >
+                <Textarea
+                  label="Project summary"
+                  placeholder="Write a short summary..."
+                  hint="Keep it brief and clear."
+                />
 
-              <Select
-                label="Environment"
-                options={[...ENVIRONMENT_OPTIONS]}
-                defaultValue="staging"
-              />
+                <Textarea
+                  label="Implementation notes"
+                  defaultValue="Primitive layer complete. Components now in progress."
+                  rows={5}
+                />
 
-              <Select
-                label="Release target"
-                options={[...ENVIRONMENT_OPTIONS]}
-                placeholder="Select a target"
-                defaultValue=""
-                error="Release target is required."
-              />
+                <Textarea
+                  label="Risk notes"
+                  placeholder="Document any issues here..."
+                  error="Risk notes are required."
+                />
+              </FieldGroup>
             </Stack>
           </Stack>
         </Box>

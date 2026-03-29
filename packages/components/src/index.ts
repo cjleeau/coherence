@@ -12,3 +12,6 @@ export type { TextareaProps } from "./textarea/Textarea";
 
 export { Select } from "./select/Select";
 export type { SelectProps, SelectOption } from "./select/Select";
+
+export { FieldGroup } from "./field-group/FieldGroup";
+export type { FieldGroupProps } from "./field-group/FieldGroup";
