@@ -23,7 +23,7 @@ const COMPONENTS_COMPLETE = [
   "Select",
   "FieldGroup"
 ] as const;
-const NEXT_UP = ["Validation patterns"] as const;
+const NEXT_UP = ["Interaction states"] as const;
 
 const ROLE_OPTIONS = [
   { label: "Designer", value: "designer" },
@@ -247,6 +247,37 @@ export default function Page() {
                   label="Risk notes"
                   placeholder="Document any issues here..."
                   error="Risk notes are required."
+                />
+              </FieldGroup>
+
+              <FieldGroup
+                title="Validation patterns"
+                description="Consistent error and helper messaging across controls."
+              >
+                <Field
+                  label="Validated email"
+                  type="email"
+                  placeholder="name@company.com"
+                  error="Please enter a valid work email."
+                />
+
+                <Select
+                  label="Validated environment"
+                  options={[...ENVIRONMENT_OPTIONS]}
+                  placeholder="Select an environment"
+                  defaultValue=""
+                  error="Environment selection is required."
+                />
+
+                <Textarea
+                  label="Validated description"
+                  placeholder="Enter a description..."
+                  error="Description must be provided."
+                />
+
+                <Checkbox
+                  label="Validated confirmation"
+                  error="You must confirm before continuing."
                 />
               </FieldGroup>
             </Stack>

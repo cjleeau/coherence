@@ -1,14 +1,22 @@
 import { useId } from "react";
 import type { CSSProperties, InputHTMLAttributes } from "react";
+import {
+  errorStyle,
+  getDescribedBy,
+  hintStyle,
+  labelStyle
+} from "../_internal/formStyles";
 
 export type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
   hint?: string;
+  error?: string;
 };
 
 export function Checkbox({
   label,
   hint,
+  error,
   id,
   disabled = false,
   style,
@@ -17,29 +25,20 @@ export function Checkbox({
   const generatedId = useId();
   const inputId = id ?? generatedId;
   const hintId = hint ? `${inputId}-hint` : undefined;
-
-  const labelStyle: CSSProperties = {
-    color: "var(--text-primary)",
-    fontSize: "var(--font-size-md)",
-    lineHeight: "var(--font-lineHeight-normal)"
-  };
-
-  const hintStyle: CSSProperties = {
-    color: "var(--text-secondary)",
-    fontSize: "var(--font-size-sm)",
-    lineHeight: "var(--font-lineHeight-normal)"
-  };
+  const errorId = error ? `${inputId}-error` : undefined;
+  const describedBy = getDescribedBy(hintId, errorId);
 
   const boxStyle: CSSProperties = {
     width: "16px",
     height: "16px",
     borderWidth: "1px",
     borderStyle: "solid",
-    borderColor: "var(--border-strong)",
+    borderColor: error ? "var(--status-critical)" : "var(--border-strong)",
     borderRadius: "4px",
     accentColor: "var(--action-primary)",
     cursor: disabled ? "not-allowed" : "pointer",
     opacity: disabled ? 0.5 : 1,
+    boxShadow: error ? "0 0 0 1px var(--status-critical)" : "none",
     ...((style as CSSProperties | undefined) ?? {})
   };
 
@@ -50,7 +49,8 @@ export function Checkbox({
           id={inputId}
           type="checkbox"
           disabled={disabled}
-          aria-describedby={hintId}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={describedBy}
           style={boxStyle}
           {...rest}
         />
@@ -61,6 +61,12 @@ export function Checkbox({
       {hint ? (
         <p id={hintId} style={hintStyle}>
           {hint}
+        </p>
+      ) : null}
+
+      {error ? (
+        <p id={errorId} style={errorStyle}>
+          {error}
         </p>
       ) : null}
     </div>
