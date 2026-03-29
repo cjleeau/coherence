@@ -1,6 +1,7 @@
 import { useId } from "react";
 import type { CSSProperties, InputHTMLAttributes } from "react";
 import {
+  checkboxClassName,
   errorStyle,
   getDescribedBy,
   hintStyle,
@@ -51,6 +52,7 @@ export function Checkbox({
           disabled={disabled}
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
+          className={checkboxClassName}
           style={boxStyle}
           {...rest}
         />

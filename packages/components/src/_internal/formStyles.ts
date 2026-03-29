@@ -23,6 +23,12 @@ export const errorStyle: CSSProperties = {
   lineHeight: "var(--font-lineHeight-normal)"
 };
 
+export const controlClassName =
+  "w-full transition-colors transition-shadow duration-150 hover:border-[var(--border-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]";
+
+export const checkboxClassName =
+  "transition-colors transition-shadow duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]";
+
 export function getControlStyle({
   invalid,
   disabled,

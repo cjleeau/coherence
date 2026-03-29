@@ -1,6 +1,7 @@
 import { useId } from "react";
 import type { CSSProperties, InputHTMLAttributes } from "react";
 import {
+  controlClassName,
   errorStyle,
   getControlStyle,
   getDescribedBy,
@@ -40,7 +41,7 @@ export function Field({
         disabled={disabled}
         aria-invalid={error ? true : undefined}
         aria-describedby={describedBy}
-        className="w-full"
+        className={controlClassName}
         style={getControlStyle({
           invalid: Boolean(error),
           disabled,

@@ -1,6 +1,7 @@
 import { useId } from "react";
 import type { CSSProperties, SelectHTMLAttributes } from "react";
 import {
+  controlClassName,
   errorStyle,
   getControlStyle,
   getDescribedBy,
@@ -49,7 +50,7 @@ export function Select({
         disabled={disabled}
         aria-invalid={error ? true : undefined}
         aria-describedby={describedBy}
-        className="w-full"
+        className={controlClassName}
         style={getControlStyle({
           invalid: Boolean(error),
           disabled,

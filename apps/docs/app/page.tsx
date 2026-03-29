@@ -23,7 +23,7 @@ const COMPONENTS_COMPLETE = [
   "Select",
   "FieldGroup"
 ] as const;
-const NEXT_UP = ["Interaction states"] as const;
+const NEXT_UP = ["Form actions and layout polish"] as const;
 
 const ROLE_OPTIONS = [
   { label: "Designer", value: "designer" },
