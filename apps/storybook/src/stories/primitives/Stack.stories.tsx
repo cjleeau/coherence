@@ -1,7 +1,21 @@
-import { Box, Heading, Stack, Text } from "@coherence/primitives";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Box, Stack, Text, Heading } from "@coherence/primitives";
 
-export default function StackPrimitivePage() {
-  return (
+const meta = {
+  title: "Primitives/Stack",
+  component: Stack,
+  parameters: {
+    layout: "fullscreen"
+  },
+  tags: ["autodocs"]
+} satisfies Meta<typeof Stack>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Overview: Story = {
+  render: () => (
     <Box
       className="min-h-screen p-8"
       surface="base"
@@ -13,32 +27,21 @@ export default function StackPrimitivePage() {
       <Stack className="mx-auto max-w-4xl" space="8">
         <Stack as="header" space="4">
           <Text size="sm" tone="secondary">
-            Coherence / Primitives / Stack
+            Primitive / Stack
           </Text>
 
           <Heading as="h1" size="xl">
-            Stack
+            Stack controls vertical layout and spacing
           </Heading>
 
           <Text size="lg" tone="secondary" className="max-w-2xl">
-            Stack is the vertical layout primitive. It manages consistent spacing
-            between elements using the spacing token scale.
+            Use Stack to arrange elements vertically with consistent spacing
+            driven by the token scale.
           </Text>
         </Stack>
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
           <Stack space="4">
-            <Heading size="lg">Purpose</Heading>
-
-            <Text tone="secondary">
-              Stack removes the need for manual margin management by applying
-              consistent vertical spacing between children.
-            </Text>
-          </Stack>
-        </Box>
-
-        <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="3">
             <Heading size="lg">Example</Heading>
 
             <Stack space="3">
@@ -62,22 +65,11 @@ export default function StackPrimitivePage() {
             <Heading size="lg">When to use</Heading>
 
             <Stack space="2">
-              <Text>• vertical layouts</Text>
-              <Text>• page sections</Text>
-              <Text>• form fields</Text>
-              <Text>• content grouping</Text>
+              <Text>• vertical layout of elements</Text>
+              <Text>• spacing between sections</Text>
+              <Text>• form grouping</Text>
+              <Text>• replacing manual margin stacking</Text>
             </Stack>
-          </Stack>
-        </Box>
-
-        <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Accessibility</Heading>
-
-            <Text tone="secondary">
-              Stack does not change semantics. Use the <code>as</code> prop to
-              render semantic elements where required (e.g. section, ul).
-            </Text>
           </Stack>
         </Box>
 
@@ -90,10 +82,10 @@ export default function StackPrimitivePage() {
                 <Stack space="2">
                   <Text weight="semibold">Do</Text>
                   <Text tone="secondary">
-                    Use Stack instead of margin-bottom.
+                    Use Stack instead of manually applying margin-bottom.
                   </Text>
                   <Text tone="secondary">
-                    Keep spacing consistent via tokens.
+                    Keep spacing consistent using token values.
                   </Text>
                 </Stack>
               </Box>
@@ -102,10 +94,10 @@ export default function StackPrimitivePage() {
                 <Stack space="2">
                   <Text weight="semibold">Don’t</Text>
                   <Text tone="secondary">
-                    Don’t mix Stack with manual spacing overrides.
+                    Don’t mix Stack spacing with random margins.
                   </Text>
                   <Text tone="secondary">
-                    Don’t use Stack for horizontal layout.
+                    Don’t use Stack for horizontal layout (use Inline).
                   </Text>
                 </Stack>
               </Box>
@@ -114,5 +106,41 @@ export default function StackPrimitivePage() {
         </Box>
       </Stack>
     </Box>
-  );
-}
+  )
+};
+
+export const SpacingScale: Story = {
+  render: () => (
+    <Stack space="6">
+      <Stack space="1">
+        <Text size="sm">space="1"</Text>
+        <Box className="rounded-lg p-3" surface="sunken" border="subtle">
+          <Text>Item</Text>
+        </Box>
+        <Box className="rounded-lg p-3" surface="sunken" border="subtle">
+          <Text>Item</Text>
+        </Box>
+      </Stack>
+
+      <Stack space="3">
+        <Text size="sm">space="3"</Text>
+        <Box className="rounded-lg p-3" surface="sunken" border="subtle">
+          <Text>Item</Text>
+        </Box>
+        <Box className="rounded-lg p-3" surface="sunken" border="subtle">
+          <Text>Item</Text>
+        </Box>
+      </Stack>
+
+      <Stack space="6">
+        <Text size="sm">space="6"</Text>
+        <Box className="rounded-lg p-3" surface="sunken" border="subtle">
+          <Text>Item</Text>
+        </Box>
+        <Box className="rounded-lg p-3" surface="sunken" border="subtle">
+          <Text>Item</Text>
+        </Box>
+      </Stack>
+    </Stack>
+  )
+};
